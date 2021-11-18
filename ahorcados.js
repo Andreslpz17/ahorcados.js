@@ -1,23 +1,22 @@
-String.prototype.replaceAt=function(index, character) { return this.substr(0, index) + character + this.substr(index+character.length); } 
+String.prototype.replaceAt=function(index, character) { return this.substr(0, index) + character + this.substr(index+ character.length); } 
 
 // palabraConGuiones = palabraConGuiones.replaceAt(i*2, letra);
 
-const diccionario = ['casa', 'pescado', 'calamar', 'jaguar', 'mrbeast' ]
+const diccionario = ['casa', 'pescado', 'calamar', 'jaguar' ];
 
-const palabra = diccionario[Math.floor(Math.random()*diccionario.length)]
+const palabra = diccionario[Math.floor(Math.random()*diccionario.length)];
 
-const palabraConGuiones = palabra.replace(/./g, "_ ");
-
-alert(palabra + " - " + palabraConGuiones)
-
+let palabraConGuiones = palabra.replace(/./g, "_ ");
 
 document.querySelector('#calcular').addEventListener('click', () =>{
     const letra = document.querySelector('#letra').value;
 
     for(const i in palabra){
-        if(letra == palabrea[i]){
-            alert("Exito")
-        }
+        if(letra == palabra[i]){
+            palabraConGuiones = palabraConGuiones.replaceAt(i*2, letra);
+       }
+
     }
-    alert(letra)
+    document.querySelector('#output').innerHTML = palabraConGuiones;
 });
+
